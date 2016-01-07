@@ -31,32 +31,15 @@ public class HbmProductRepositoryImpl implements ProductRepository {
         return products;
     }
 
-    @Transactional
-    public Collection<Product> getProductNew(boolean isNew, int pageNumber, int pageLimit) throws DataAccessException {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("From Product p where p.isNew = :isNew");
-        query.setFirstResult(pageLimit * (pageNumber - 1));
-        query.setMaxResults(pageLimit);
-        query.setParameter("isNew", isNew);
-        Collection<Product> collection = (Collection<Product>) query.list();
-        return collection;
+    public Collection<Product> getProductNew(boolean isNew) throws DataAccessException {
+        return null;
     }
 
-    @Transactional
     public Product findProductById(int id) throws DataAccessException {
-        Session session = sessionFactory.getCurrentSession();
-        Product product = (Product) session.load(Product.class, id);
-        return product;
+        return null;
     }
 
-    @Transactional
-    public Collection<Product> findProductName(String name, int pageNumber, int pageLimit) throws DataAccessException {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("From Product p where p.name like :name");
-        query.setFirstResult(pageLimit * (pageNumber - 1));
-        query.setMaxResults(pageLimit);
-        query.setParameter("name", name + "%");
-        Collection<Product> collection = (Collection<Product>) query.list();
-        return collection;
+    public Product findProductName(String name) throws DataAccessException {
+        return null;
     }
 }
