@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public interface ProductRepository {
 
-    Collection<Product> getProductByCatalogType(int pageNumber, int pageLimit) throws DataAccessException;
+    Collection<Product> getProductByCatalogType(int id) throws DataAccessException;
 
     Collection<Product> getProductNew(boolean isNew, int pageNumber, int pageLimit) throws DataAccessException;
 

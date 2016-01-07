@@ -1,5 +1,6 @@
 package ru.webshop.model;
 
+
 import javax.persistence.*;
 
 /**
