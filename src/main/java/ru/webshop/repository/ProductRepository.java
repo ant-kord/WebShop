@@ -12,10 +12,10 @@ public interface ProductRepository {
 
     Collection<Product> getProductByCatalogType(int pageNumber, int pageLimit) throws DataAccessException;
 
-    Collection<Product> getProductNew(boolean isNew) throws DataAccessException;
+    Collection<Product> getProductNew(boolean isNew, int pageNumber, int pageLimit) throws DataAccessException;
 
     Product findProductById(int id) throws DataAccessException;
 
-    Product findProductName(String name) throws DataAccessException;
+    Collection<Product> findProductName(String name, int pageNumber, int pageLimit) throws DataAccessException;
 
 }
