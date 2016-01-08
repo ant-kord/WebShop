@@ -11,6 +11,7 @@
         <property name="connection.pool_size">15</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
-        <mapping class="ru.antkord.webshop.model.Product"/>
+        <mapping class="ru.webshop.model.Product"/>
+        <mapping class="ru.webshop.model.CatalogType"/>
     </session-factory>
 </hibernate-configuration>
