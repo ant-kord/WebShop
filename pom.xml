@@ -8,15 +8,17 @@
     <artifactId>webshop</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
     <properties>
         <java-version>1.8</java-version>
-        <springframework-version>4.2.4.RELEASE</springframework-version>
+        <springframework-version>4.0.3.RELEASE</springframework-version>
         <springsecurity-version>4.0.3.RELEASE</springsecurity-version>
         <slf4j-version>1.7.13</slf4j-version>
         <logback-version>1.0.13</logback-version>
-        <hibernate-version>5.0.6.Final</hibernate-version>
+        <hibernate-version>4.3.5.Final</hibernate-version>
+        <majjora-version>2.2.10</majjora-version>
+        <primefaces-version>5.0</primefaces-version>
     </properties>
+
     <dependencies>
         <!-- Spring -->
         <dependency>
@@ -40,6 +42,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${springframework-version}</version>
+        </dependency>
+
+        <!--Spring Boot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.3.1.RELEASE</version>
         </dependency>
 
         <!-- Spring Security -->
@@ -118,10 +127,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Database connection pool
-        See here for more details on commons-dbcp versus tomcat-jdbc:
-        http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/
-    -->
+        <!-- Database connection pool -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jdbc</artifactId>
@@ -136,11 +142,48 @@
             <version>5.1.37</version>
         </dependency>
 
-        <!-- @Inject -->
+        <!-- JSR-330 -->
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
+        </dependency>
+
+        <!-- JSF -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${majjora-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>${majjora-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <!--PrimeFaces-->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces-version}</version>
         </dependency>
 
         <!-- Servlet -->
@@ -162,6 +205,21 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- EL -->
+        <!--<dependency>-->
+        <!--<groupId>org.glassfish.web</groupId>-->
+        <!--<artifactId>el-impl</artifactId>-->
+        <!--<version>2.2</version>-->
+        <!--</dependency>-->
+
+
+        <!--&lt;!&ndash; Tomcat 6 need this &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--<groupId>com.sun.el</groupId>-->
+        <!--<artifactId>el-ri</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--</dependency>-->
+
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
@@ -171,5 +229,6 @@
         </dependency>
 
     </dependencies>
+
 
 </project>
