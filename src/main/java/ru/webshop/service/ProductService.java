@@ -1,6 +1,7 @@
 package ru.webshop.service;
 
 import org.springframework.dao.DataAccessException;
+import ru.webshop.model.CatalogType;
 import ru.webshop.model.Product;
 
 import java.util.Collection;
@@ -8,7 +9,8 @@ import java.util.Collection;
 /**
  * Created by ant-kord on 06.01.2016.
  */
-public interface WebShopService {
+public interface ProductService {
 
     Collection<Product> getProductByCatalogType(int pageNumber, int pageLimit) throws DataAccessException;
+
 }

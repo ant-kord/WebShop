@@ -25,6 +25,9 @@ public class HbmCatalogTypeRepositoryImpl implements CatalogTypeRepository {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("From CatalogType");
         Collection<CatalogType> collection = (Collection<CatalogType>) query.list();
+        for(CatalogType catalogType : collection){
+            System.out.println(catalogType.getName());
+        }
         return collection;
     }
 

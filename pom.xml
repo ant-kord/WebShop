@@ -186,6 +186,13 @@
             <version>${primefaces-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
+
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -229,6 +236,8 @@
         </dependency>
 
     </dependencies>
+
+
 
 
 </project>
