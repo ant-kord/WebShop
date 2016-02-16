@@ -1,10 +1,9 @@
 <configuration>
 
-    <property name="USER_HOME" value="./logs" />
-    <property name="CATALINA_HOME" value="c:\Apache Tomcat" />
+    <property name="USER_HOME" value="C:\WebShop\logs" />
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>$CATALINA_HOME\logs\app.yyyy-mm-dd.log</file>
+        <file>${CATALINA_HOME}/WebShop.yyyy-mm-dd.log</file>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -12,5 +11,17 @@
 
     <root level="DEBUG">
         <appender-ref ref="FILE" />
+    </root>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are  by default assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
     </root>
 </configuration>

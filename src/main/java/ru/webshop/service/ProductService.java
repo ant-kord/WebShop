@@ -11,6 +11,12 @@ import java.util.Collection;
  */
 public interface ProductService {
 
-    Collection<Product> getProductByCatalogType(int pageNumber, int pageLimit) throws DataAccessException;
+
+    Collection<Product> getProductTypeAll() throws DataAccessException;
+
+    Collection<Product> getProductTypeByCatalogId(Integer id) throws DataAccessException;
+
+    Collection<Product> getProductByCatalogTypePaged(int pageNumber, int pageLimit) throws DataAccessException;
+
 
 }

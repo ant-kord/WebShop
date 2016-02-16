@@ -12,34 +12,46 @@
 
     <import resource="datasource-config.xml"/>
 
-    <context:component-scan
-            base-package="ru.webshop.service"/>
+    <context:component-scan base-package="ru.webshop"/>
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <!-- Hibernate SessionFactory -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
         p:dataSource-ref="dataSource"    >
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:hbm/hibernate.cfg.xml"/>
     </bean>
+
+    <!--<bean id="catalogTypeRepository" class="ru.webshop.repository.hbm.HbmCatalogTypeRepositoryImpl">-->
+        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="catalogTypeService" class="ru.webshop.service.CatalogTypeServiceImpl">-->
+        <!--<property name="catalogTypeRepository" ref="catalogTypeRepository"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="productRepository" class="ru.webshop.repository.hbm.HbmProductRepositoryImpl">-->
+        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="productService" class="ru.webshop.service.ProductServiceImpl">-->
+        <!--<property name="productRepository" ref="productRepository"/>-->
+    <!--</bean>-->
 
     <!-- enables scanning for @Transactional annotations -->
     <tx:annotation-driven/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-
     <!--
            Post-processor to perform exception translation on @Repository classes (from native
            exceptions such as JPA PersistenceExceptions to Spring's DataAccessException hierarchy).
     -->
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
-    <import resource="mvc-view-config.xml"/>
 
 </beans>
